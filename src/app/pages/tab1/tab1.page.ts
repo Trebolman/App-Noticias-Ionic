@@ -2,7 +2,6 @@ import { RespuestaTopHeadLines } from './../../interfaces/interfaces';
 import { NoticiasService } from './../../services/noticias.service';
 import { Component, OnInit } from '@angular/core';
 import { Article } from 'src/app/interfaces/interfaces';
-import { TemplateBindingParseResult } from '@angular/compiler';
 
 @Component({
   selector: 'app-tab1',
@@ -11,7 +10,6 @@ import { TemplateBindingParseResult } from '@angular/compiler';
 })
 export class Tab1Page implements OnInit{
   noticias: Article[] = [];
-  // totalNoticias: number = 0;
   constructor(private noticiasService: NoticiasService) {}
 
   ngOnInit(){

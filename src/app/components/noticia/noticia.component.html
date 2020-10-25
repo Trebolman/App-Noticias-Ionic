@@ -1,20 +1,21 @@
 <ion-card>
-  <ion-card-header>
+  <ion-card-header (click)="onClick()">
     <ion-card-subtitle>
       <span class="text-primary">
         {{ index + 1 }}
       </span>
       <span class="noticia-source-name">
-        {{noticia.source.name}}
+        {{ noticia.source.name }}
       </span>
     </ion-card-subtitle>
-    <ion-card-title>{{noticia.title}}</ion-card-title>
+    <ion-card-title>{{ noticia.title }}</ion-card-title>
   </ion-card-header>
   <ion-img
+    (click)="onClick()"
     [src]="noticia.urlToImage"
     *ngIf="noticia.urlToImage"
   ></ion-img>
   <ion-card-content>
-    <p>{{noticia.description}}</p>
+    <p>{{ noticia.description }}</p>
   </ion-card-content>
 </ion-card>
