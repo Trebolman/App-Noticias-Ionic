@@ -1,5 +1,6 @@
 <ion-card>
-  <ion-card-header (click)="onClick()">
+  <!-- <ion-card-header (click)="onClick()"> -->
+  <ion-card-header>
     <ion-card-subtitle>
       <span class="text-primary">
         {{ index + 1 }}
@@ -7,6 +8,15 @@
       <span class="noticia-source-name">
         {{ noticia.source.name }}
       </span>
+      <div class="noticia-more">
+        <ion-button fill="clear" (click)="lanzarMenu()">
+          <ion-icon
+            slot="icon-only"
+            name="ellipsis-vertical"
+            color="primary"
+          ></ion-icon>
+        </ion-button>
+      </div>
     </ion-card-subtitle>
     <ion-card-title>{{ noticia.title }}</ion-card-title>
   </ion-card-header>
