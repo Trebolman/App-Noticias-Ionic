@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { InAppBrowser } from "@ionic-native/in-app-browser/ngx";
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { ActionSheetController } from "@ionic/angular";
-import { Article } from "src/app/interfaces/interfaces";
+import { Articulo } from 'src/app/interfaces/noticiasWebSearch';
 
 @Component({
   selector: "app-noticia",
@@ -9,11 +10,12 @@ import { Article } from "src/app/interfaces/interfaces";
   styleUrls: ["./noticia.component.scss"],
 })
 export class NoticiaComponent implements OnInit {
-  @Input() noticia: Article;
+  @Input() noticia: Articulo;
   @Input() index: number;
   constructor(
     private iab: InAppBrowser,
-    private actionSheetCtrl: ActionSheetController
+    private actionSheetCtrl: ActionSheetController,
+    private socialSharing: SocialSharing
   ) {}
 
   ngOnInit() {
@@ -33,6 +35,13 @@ export class NoticiaComponent implements OnInit {
           icon: "share",
           handler: () => {
             console.log("Share clicked");
+            // elegimos share porque permite al usuario elegir lo que quiera.
+            this.socialSharing.share(
+              this.noticia.title,
+              this.noticia.provider.name,
+              '',
+              this.noticia.url
+            );
           },
         },
         {

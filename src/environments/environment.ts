@@ -4,8 +4,14 @@
 
 export const environment = {
   production: false,
-  apikey: 'f8a4f48b89244e65aff22d27f76fce85',
-  apiUrl: 'http://newsapi.org/v2'
+  // apikey: 'f8a4f48b89244e65aff22d27f76fce85',
+  // apiUrl: 'http://newsapi.org/v2'
+  // apikey: 'bbfda316a6msh24331a857c1b94cp1db939jsnca070da6dfec',
+  // apiUrl: 'https://rapidapi.p.rapidapi.com/api/Search/WebSearchAPI'
+  apiUrl: 'https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search',
+  apiHost: 'contextualwebsearch-websearch-v1.p.rapidapi.com',
+  apikey: 'bbfda316a6msh24331a857c1b94cp1db939jsnca070da6dfec'
+
 };
 
 /*

@@ -11,13 +11,13 @@ export class Tab2Page implements OnInit, AfterViewInit {
   @ViewChild(IonSegment) segment: IonSegment;
 
   categorias = [
-    "business",
-    "entertainment",
-    "general",
-    "health",
-    "science",
-    "sports",
-    "technology",
+    "Education",
+    "Family",
+    "Covid-19",
+    "Health",
+    "Technology",
+    "Sports",
+    "Politician",
   ];
   noticias = [];
   constructor(private noticiasService: NoticiasService) {}
@@ -44,10 +44,10 @@ export class Tab2Page implements OnInit, AfterViewInit {
     this.noticiasService
       .getTopHeadLinesCategories(categoria)
       .subscribe((resp) => {
-        this.noticias.push(...resp.articles);
+        this.noticias.push(...resp.value);
 
         if (event) {
-          if (resp.articles.length == 0) {
+          if (resp.value.length == 0) {
             event.target.disabled = true;
           }
           event.target.complete();

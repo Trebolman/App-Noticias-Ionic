@@ -1,7 +1,7 @@
 import { RespuestaTopHeadLines } from './../../interfaces/interfaces';
 import { NoticiasService } from './../../services/noticias.service';
 import { Component, OnInit } from '@angular/core';
-import { Article } from 'src/app/interfaces/interfaces';
+import { Articulo } from 'src/app/interfaces/noticiasWebSearch';
 
 @Component({
   selector: 'app-tab1',
@@ -9,11 +9,12 @@ import { Article } from 'src/app/interfaces/interfaces';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit{
-  noticias: Article[] = [];
+  noticias: Articulo[] = [];
   constructor(private noticiasService: NoticiasService) {}
 
   ngOnInit(){
     this.cargarNoticias();
+    // this.noticiasService.getNews().subscribe(noticia => console.log('noticia', noticia));
   }
 
   loadData(event){
@@ -22,8 +23,10 @@ export class Tab1Page implements OnInit{
 
   cargarNoticias(event?){
     this.noticiasService.getTopHeadLines().subscribe( resp => {
-      this.noticias.push(...resp.articles);
-      if(resp.articles.length == 0){
+      console.log(resp);
+      
+      this.noticias.push(...resp.value);
+      if(resp.value.length == 0){
         event.target.disabled = true;
         event.target.complete();
         return
