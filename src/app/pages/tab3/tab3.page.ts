@@ -1,3 +1,4 @@
+import { DataLocalService } from './../../services/data-local.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,7 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+  
+  sliderOpts = {
+    allowSlidePrev: false,
+    allowSlideNext: false
+  }
 
-  constructor() {}
+  constructor(public dataLocalService: DataLocalService) {
+    // this.dataLocalService.cargarNoticias().then(resp => {
+    //   console.log(resp);
+    // });
+    this.dataLocalService.cargarNoticias();
+  }
 
 }

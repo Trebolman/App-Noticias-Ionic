@@ -23,7 +23,7 @@ export class Tab1Page implements OnInit{
 
   cargarNoticias(event?){
     this.noticiasService.getTopHeadLines().subscribe( resp => {
-      console.log(resp);
+      // console.log(resp);
       
       this.noticias.push(...resp.value);
       if(resp.value.length == 0){

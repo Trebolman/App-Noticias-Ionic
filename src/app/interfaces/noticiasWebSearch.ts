@@ -19,6 +19,7 @@ export interface Image {
 
 export interface Articulo {
 	id: string;
+	saved: boolean;
 	title: string;
 	url: string;
 	description: string;
